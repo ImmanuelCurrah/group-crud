@@ -1,3 +1,4 @@
+/* Laura */
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 .navbar {
@@ -5,6 +6,7 @@
   justify-content: space-between;
   position: fixed;
   width: 100%;
+  background-color: black;
 }
 
 a {
@@ -30,6 +32,9 @@ a:active {
 .title {
   font-family: "Press Start 2P", cursive;
   margin-left: 25px;
+}
+.title:hover {
+  transform: scale(1.04);
 }
 
 .links {

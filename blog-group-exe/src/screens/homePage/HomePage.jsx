@@ -1,3 +1,4 @@
+// Laura added Layout to homepage
 import React from "react";
 import Layout from "../../components/layout/Layout";
 

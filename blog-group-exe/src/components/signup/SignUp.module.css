@@ -1,3 +1,15 @@
-.title {
-  color: red;
+/** Galina */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+.signUp {
+  font-family: "Press Start 2P", cursive;
+
+  margin-top: 100px;
+}
+.title,
+.label {
+  color: #d331e2;
+}
+
+.label {
+  text-align: left;
 }

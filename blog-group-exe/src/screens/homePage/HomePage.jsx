@@ -5,9 +5,7 @@ import Layout from "../../components/layout/Layout";
 export default function HomePage() {
   return (
     <div>
-      <Layout>
-        
-      </Layout>
+      <Layout></Layout>
     </div>
   );
 }

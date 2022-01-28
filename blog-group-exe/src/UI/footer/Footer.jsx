@@ -1,11 +1,13 @@
-import classes from "./Footer.modules.css";
+import classes from "./Footer.module.css";
 
 
 const Footer = () => {
 
   return (
-    <footer>
+    <footer className={classes.footer}>
       <h1>Feet!</h1>
     </footer>
   )
 }
+
+export default Footer;

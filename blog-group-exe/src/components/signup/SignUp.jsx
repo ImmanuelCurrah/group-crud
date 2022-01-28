@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classes from "./SignUp.module.css";
+import { signUpHandler } from '../../services/apiConfig';
+import { existingUsersHandler } from '../../services/apiConfig';
 
 export default function SignUp() {
   const [newUser, setNewUser] = useState({
@@ -13,13 +15,18 @@ export default function SignUp() {
   const [validationMessage, setValidationMessage] = useState("");
   const [valid, setValid] = useState(false)
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await existingUsersHandler;
+      console.log(res)
+    };
+    fetchData();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await
-      /**
-       * createUser
-       */
-      (newUser)
+    await signUpHandler({newUser})
+    console.log(newUser)
   }
 
   const handleInput = (e) => {

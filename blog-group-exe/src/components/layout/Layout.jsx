@@ -2,7 +2,7 @@ import "./Layout.module.css";
 import NavBar from "../../UI/navbar/NavBar";
 
 
-const Layout = () => {
+const Layout = (props) => {
   return (
     <div className="layout">
     <NavBar />

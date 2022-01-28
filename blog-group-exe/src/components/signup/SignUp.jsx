@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "./SignUp.module.css";
+import classes from "./SignUp.module.css";
 
 export default function SignUp() {
   const [newUser, setNewUser] = useState({
@@ -53,7 +53,7 @@ export default function SignUp() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h2>Sign up</h2>
+        <h2 className={classes.title}>Sign up</h2>
         <h3>{validationMessage}</h3>
         <label>User name</label><br/>
         <input type="text" placeholder='create user name'

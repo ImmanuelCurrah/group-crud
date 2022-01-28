@@ -9,21 +9,22 @@
 
 a {
   text-decoration: none;
-  color: black;
+  color: #32cd32;
 }
 
 a:visited {
   text-decoration: none;
-  color: black;
+  color: #32cd32;
 }
 a:hover {
   text-decoration: none;
-  color: black;
+  color: #32cd32;
+  transform: scale(1.04);
 }
 
 a:active {
   text-decoration: none;
-  color: black;
+  color: #1f51ff;
 }
 
 .title {

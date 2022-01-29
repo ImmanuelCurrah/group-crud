@@ -1,30 +1,25 @@
-import React from 'react';
-import { useState, useEffect } from "react"
-import { loginHandler } from "../../services/apiConfig"
-import Layout from '../layout/Layout';
+import React from "react";
+import { useState, useEffect } from "react";
+import { loginHandler } from "../../services/apiConfig";
+import Layout from "../layout/Layout";
 
 const defaultInput = {
   userName: "",
   firstName: "",
   lastName: "",
   email: "",
-  password: ""
-}
+  password: "",
+};
 
 function LoginForm(props) {
-
-
-  const [form, setForm] = useState(defaultInput)
-
-
-
+  const [form, setForm] = useState(defaultInput);
 
   const handleChange = (event) => {
     setForm({
       ...form,
       [event.target.name]: event.target.value,
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,13 +28,7 @@ function LoginForm(props) {
     fetchData();
   }, []);
 
-  const { userName, firstName, lastName, email, password } = props
-
-
-
-
-
-
+  const { userName, firstName, lastName, email, password } = props;
 
   return (
     <div>
@@ -100,9 +89,8 @@ function LoginForm(props) {
           onChange={handleChange}
         />
       </form>
-
     </div>
-  )
+  );
 }
 
 export default LoginForm;

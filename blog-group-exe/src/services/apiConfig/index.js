@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const baseURL = "https://tranquil-lake-29913.herokuapp.com/api/users";
-const loginURL = "https://tranquil-lake-29913.herokuapp.com/api/login/";
-const logoutURL = "https://tranquil-lake-29913.herokuapp.com/api/logout/";
-const signUpURL = "https://tranquil-lake-29913.herokuapp.com/api/signup/";
-const deleteURL = "https://tranquil-lake-29913.herokuapp.com/api/delete/";
-const updateUserURL = "https://tranquil-lake-29913.herokuapp.comapi/update/";
+const loginURL = "https://tranquil-lake-29913.herokuapp.com/api/login";
+const logoutURL = "https://tranquil-lake-29913.herokuapp.com/api/logout";
+const signUpURL = "https://tranquil-lake-29913.herokuapp.com/api/signup";
+const deleteURL = "https://tranquil-lake-29913.herokuapp.com/api/delete";
+const updateUserURL = "https://tranquil-lake-29913.herokuapp.comapi/update";
 
 export const existingUsersHandler = axios({
   url: `${baseURL}`,
@@ -35,7 +35,7 @@ export const signUpHandler = (props) =>
     data: props,
   })
     .then((response) => {
-      return response;
+      return response.data.data;
     })
     .catch((error) => {
       return error;
@@ -57,7 +57,7 @@ export const loginHandler = (props) =>
 export const updateUserHandler = (props, urlExtension) =>
   axios({
     method: "put",
-    url: `${updateUserURL}${urlExtension}`,
+    url: `${updateUserURL}/${urlExtension}`,
     data: props,
   })
     .then((response) => {
@@ -70,7 +70,7 @@ export const updateUserHandler = (props, urlExtension) =>
 export const deleteUserHandler = (props, urlExtension) =>
   axios({
     method: "delete",
-    url: `${deleteURL}${urlExtension}`,
+    url: `${deleteURL}/${urlExtension}`,
   })
     .then((response) => {
       return response;

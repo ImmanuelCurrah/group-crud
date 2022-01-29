@@ -37,12 +37,19 @@ input {
   font-family: "Press Start 2P";
   height: 30px;
   margin: 5px;
+  border-radius: 15px;
+  border: 2px solid white;
+  padding: 1px 15px;
+  margin-bottom: 10px;
 }
 ::placeholder {
-  color: white;
+  color: rgb(228, 105, 222);
 }
 .submit {
   font-family: "Press Start 2P";
   color: black;
   background-color: #32cd32;
+  border-radius: 15px;
+  border: 3px solid white;
+  padding: 5px 15px;
 }

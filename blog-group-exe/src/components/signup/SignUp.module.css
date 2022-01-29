@@ -1,6 +1,6 @@
 /** Galina */
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-.signUp {
+.container {
   font-family: "Press Start 2P", cursive;
   background: linear-gradient(45deg, #32cd32, dodgerblue);
   margin: 0;
@@ -12,33 +12,37 @@
   height: 100vh;
 }
 .title,
-.message,
 .label {
   color: #32cd32;
+}
+.message {
+  color: red;
+  font-size: 10px;
 }
 
 .label {
   text-align: left;
-  color: rgb(204, 26, 195);
+  color: white;
 }
 form {
-  /* position: relative;
+  width: 30%;
+  position: relative;
   padding: 10px 50px;
-  background: wheat;
-  border-radius: 10px; */
+  background: black;
+  border-radius: 10px;
 }
 input {
-  /* position: relative;
-  width: 300px;
+  color: rgb(223, 30, 223);
+  background-color: #9ce49c;
+  font-family: "Press Start 2P";
   height: 30px;
-  margin-bottom: 30px;
-  /* position: absolute; */
-  /* top: 0;
-  left: 0;
-  width: 100%;
-  border: 2px solid rgb(204, 26, 195);
-  outline: 2px solid #32cd32;
-  padding: 1px;
-  border-radius: 10px;
-  font-size: 15px; */
+  margin: 5px;
+}
+::placeholder {
+  color: white;
+}
+.submit {
+  font-family: "Press Start 2P";
+  color: black;
+  background-color: #32cd32;
 }

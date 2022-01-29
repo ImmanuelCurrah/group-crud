@@ -6,7 +6,9 @@ import SignUp from "../../components/signup/SignUp";
 export default function HomePage() {
   return (
     <div>
-      <Layout></Layout>
+      <Layout>
+        <SignUp />
+      </Layout>
     </div>
   );
 }

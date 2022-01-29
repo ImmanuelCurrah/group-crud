@@ -2,14 +2,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 .signUp {
   font-family: "Press Start 2P", cursive;
-
-  margin-top: 100px;
+  background: linear-gradient(45deg, #32cd32, dodgerblue);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .title,
+.message,
 .label {
-  color: #d331e2;
+  color: #32cd32;
 }
 
 .label {
   text-align: left;
+  color: rgb(204, 26, 195);
+}
+form {
+  /* position: relative;
+  padding: 10px 50px;
+  background: wheat;
+  border-radius: 10px; */
+}
+input {
+  /* position: relative;
+  width: 300px;
+  height: 30px;
+  margin-bottom: 30px;
+  /* position: absolute; */
+  /* top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid rgb(204, 26, 195);
+  outline: 2px solid #32cd32;
+  padding: 1px;
+  border-radius: 10px;
+  font-size: 15px; */
 }

@@ -1,5 +1,5 @@
-.body{
-  background-color: black
+.container{
+  background: linear-gradient(45deg, #32cd32, dodgerblue);
 }
 .label_container{
   color: white;

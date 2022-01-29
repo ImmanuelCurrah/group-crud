@@ -65,51 +65,58 @@ export default function SignUp() {
   return (
     <Layout>
     <div className={classes.container}>
-      <form onSubmit={handleSubmit}>
+      <form className={classes.signupForm} onSubmit={handleSubmit}>
         <h2 className={classes.title}>Sign up</h2>
         <h3 className={classes.message}>{validationMessage}</h3>
         <label className={classes.label}>User name</label><br/>
-        <input type="text" 
+          <input className={classes.signupInput}
+              type="text" 
               placeholder='create user name'
               id='userName' value={newUser.userName}
               onChange={handleInput} />
         <br />
         <label className={classes.label}>Upload avatar</label>
         <br />
-        <input type="text"
+          <input className={classes.signupInput}
+              type="text"
               placeholder='avatar link'
               id='avatar' value={newUser.avatar}
               onChange={handleInput} />
         <br />
           <label className={classes.label}>First Name</label>
         <br />
-        <input type="text"
+          <input className={classes.signupInput}
+              type="text"
               placeholder='first name'
               id='firstName' value={newUser.firstName}
               onChange={handleInput} />
         <br />
         <label className={classes.label}>Last Name</label>
         <br />
-        <input type="text"
+          <input className={classes.signupInput}
+              type="text"
               placeholder='last name'
               id='lastName' value={newUser.lastName}
               onChange={handleInput} /><br />
         <label className={classes.label}>Email</label>
         <br />
-        <input type="text"
+        <input className={classes.signupInput}
+              type="text"
               placeholder='email'
               id='email' value={newUser.email}
               onChange={handleInput} />
         <br />
         <label className={classes.label}>Password</label>
         <br />
-        <input type="text"
+        <input className={classes.signupInput}
+              type="text"
               placeholder='create password'
               id='password' value={newUser.password}
               onChange={handleInput} /><br />
         <label className={classes.label}>Confirm password</label>
         <br />
-        <input type="text"
+        <input className={classes.signupInput}
+              type="text"
               placeholder='confirm password'
               id='confirmPassword' value={newUser.confirmPassword}
               onChange={handleInput} />

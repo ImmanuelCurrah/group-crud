@@ -1,4 +1,4 @@
-.back{
+.body{
   background-color: black
 }
 .label_container{
@@ -9,9 +9,9 @@
   width: 300px;
   height: 50px;
   border: 2px solid #01e759;
+  border-radius: 15px;
   margin-bottom: 10px;
   font-family: "Press Start 2P", cursive;
-
 }
 
 .form { 
@@ -32,6 +32,7 @@
 }
 
 .btn {
+  margin-top: 20px;
   width: 50%;
   height: 20%;
   background: #01e759;
@@ -39,9 +40,11 @@
   color: #fff;
   border: #fff;
   font-family: "Press Start 2P", cursive;
+  border-radius: 50px;
+  padding: 10px
 }
 
 .login{
   font-family: "Press Start 2P", cursive;
-  color: #fff;
+  color: #01e759;
 }

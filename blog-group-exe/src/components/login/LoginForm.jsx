@@ -45,7 +45,7 @@ function LoginForm(props) {
   return (
     <div>
       <Layout />
-      <div className={loginformcss.back}>
+      <div className={loginformcss.body}>
         <div className={loginformcss.form_body}>
           <form className={loginformcss.form}>
             <h3 className={loginformcss.login} >Login</h3>
@@ -111,6 +111,7 @@ function LoginForm(props) {
             <input
               className={loginformcss.btn}
               type="button"
+              name="button"
               value="Submit" />
           </form>
         </div>

@@ -58,7 +58,6 @@ function LoginForm(props) {
   const { email, password } = props;
 
   return (
-
     <Layout >
       <div className={loginformcss.container}>
         <div className={loginformcss.form_body}>

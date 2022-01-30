@@ -1,13 +1,10 @@
-.container{
-  background: linear-gradient(45deg, #32cd32, dodgerblue);
-}
 .label_container{
   color: white;
 }
 .input_container {
   /* position: relative; */
-  width: 300px;
-  height: 50px;
+  width: 80%;
+  height: 90%;
   border: 2px solid #01e759;
   border-radius: 15px;
   margin-bottom: 10px;
@@ -36,7 +33,7 @@
   width: 50%;
   height: 50%;
   background: #01e759;
-  font-size: 25px;
+  font-size: 50%;
   color: #fff;
   border: #fff;
   font-family: "Press Start 2P", cursive;
@@ -47,4 +44,15 @@
 .login{
   font-family: "Press Start 2P", cursive;
   color: #01e759;
+}
+.container{
+  font-family: "Press Start 2P", cursive;
+  background: linear-gradient(45deg, #32cd32, dodgerblue);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

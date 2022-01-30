@@ -5,7 +5,8 @@ const loginURL = "https://tranquil-lake-29913.herokuapp.com/api/login";
 const logoutURL = "https://tranquil-lake-29913.herokuapp.com/api/logout";
 const signUpURL = "https://tranquil-lake-29913.herokuapp.com/api/signup";
 const deleteURL = "https://tranquil-lake-29913.herokuapp.com/api/delete";
-const updateUserURL = "https://tranquil-lake-29913.herokuapp.comapi/update";
+const updateUserURL = "https://tranquil-lake-29913.herokuapp.com/api/update";
+const findUserByIdURL = "https://tranquil-lake-29913.herokuapp.com/api/users";
 
 export const existingUsersHandler = axios({
   url: `${baseURL}`,
@@ -67,10 +68,21 @@ export const updateUserHandler = (props, urlExtension) =>
       return error;
     });
 
-export const deleteUserHandler = (props, urlExtension) =>
+export const deleteUserHandler = (urlExtension) =>
   axios({
     method: "delete",
     url: `${deleteURL}/${urlExtension}`,
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return error;
+    });
+
+export const findUserById = (urlExtension) =>
+  axios({
+    url: `${findUserByIdURL}/${urlExtension}`,
   })
     .then((response) => {
       return response;

@@ -7,6 +7,7 @@ const signUpURL = "https://tranquil-lake-29913.herokuapp.com/api/signup";
 const deleteURL = "https://tranquil-lake-29913.herokuapp.com/api/delete";
 const updateUserURL = "https://tranquil-lake-29913.herokuapp.com/api/update";
 const findUserByIdURL = "https://tranquil-lake-29913.herokuapp.com/api/users";
+const postURL = "https://tranquil-lake-29913.herokuapp.com/api/users/post";
 
 export const existingUsersHandler = axios({
   url: `${baseURL}`,
@@ -59,6 +60,19 @@ export const updateUserHandler = (props, urlExtension) =>
   axios({
     method: "put",
     url: `${updateUserURL}/${urlExtension}`,
+    data: props,
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return error;
+    });
+
+export const createPost = (props, urlExtension) =>
+  axios({
+    method: "post",
+    url: `${postURL}/${urlExtension}`,
     data: props,
   })
     .then((response) => {

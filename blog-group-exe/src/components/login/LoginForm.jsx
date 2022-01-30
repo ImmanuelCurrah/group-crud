@@ -58,37 +58,35 @@ function LoginForm() {
   };
 
   return (
-    <Layout>
-      <div className={loginformcss.container}>
-        <div className={loginformcss.form_body}>
-          <form className={loginformcss.form} onSubmit={submitHandler}>
-            <h3 className={loginformcss.login}>Login</h3>
-            <br />
-            <input
-              required
-              className={loginformcss.input_container}
-              type="text"
-              id="email"
-              value={form.email}
-              placeholder="Email"
-              onChange={handleChange}
-            />
-            <br />
-            <input
-              required
-              className={loginformcss.input_container}
-              type="password"
-              id="password"
-              value={form.password}
-              placeholder="Password"
-              onChange={handleChange}
-            />
-            <br />
-            {handelError()}
-          </form>
-        </div>
+    <div className={loginformcss.container}>
+      <div className={loginformcss.form_body}>
+        <form className={loginformcss.form} onSubmit={submitHandler}>
+          <h3 className={loginformcss.login}>Login</h3>
+          <br />
+          <input
+            required
+            className={loginformcss.input_container}
+            type="text"
+            id="email"
+            value={form.email}
+            placeholder="Email"
+            onChange={handleChange}
+          />
+          <br />
+          <input
+            required
+            className={loginformcss.input_container}
+            type="password"
+            id="password"
+            value={form.password}
+            placeholder="Password"
+            onChange={handleChange}
+          />
+          <br />
+          {handelError()}
+        </form>
       </div>
-    </Layout>
+    </div>
   );
 }
 

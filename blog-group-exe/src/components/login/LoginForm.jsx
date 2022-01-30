@@ -1,15 +1,8 @@
-import React from "react";
 import loginformcss from "./LoginForm.module.css";
-<<<<<<< HEAD
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { loginHandler } from "../../services/apiConfig";
+import { useNavigate } from "react-router-dom";
 import Layout from "../layout/Layout";
-=======
-import { useState } from "react"
-import { loginHandler } from "../../services/apiConfig"
-import Layout from '../layout/Layout';
-
->>>>>>> 3fccfb6698348cdf8db94e2e99d7183ff25ae705
 
 const defaultInput = {
   email: "",
@@ -18,65 +11,65 @@ const defaultInput = {
   errorMsg: "",
 };
 
-function LoginForm(props) {
+function LoginForm() {
   const [form, setForm] = useState(defaultInput);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
+    const { id, value } = event.target;
+    setForm((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
   };
 
-  const onLoginIn = async (event) => {
-    event.preventDefault()
-    const { setUser } = props
+  const submitHandler = async (event) => {
+    event.preventDefault();
     try {
-      const user = await loginHandler(form)
-      setUser(user)
+      const user = await loginHandler(form);
+      console.log(user.data);
+      navigate(`/loggedInUser/${user.data.data._id}`);
     } catch (error) {
-      console.error(error)
+      console.error(error);
       setForm({
         isError: true,
         errorMsg: "Invalid Credentials",
         email: "",
         password: "",
-      })
+      });
     }
-  }
+  };
 
   const handelError = () => {
-    const toggleForm = form.isError ? "danger" : ""
+    const toggleForm = form.isError ? "danger" : "";
     if (form.isError) {
       return (
         <button type="submit" className={toggleForm}>
           {form.errorMsg}
         </button>
-      )
+      );
     } else {
-      return <button className={loginformcss.btn} type="submit" >Login In</button>
+      return (
+        <button className={loginformcss.btn} type="submit">
+          Login In
+        </button>
+      );
     }
-  }
-
-
-
-
-  const { email, password } = props;
+  };
 
   return (
-
-    <Layout >
+    <Layout>
       <div className={loginformcss.container}>
         <div className={loginformcss.form_body}>
-          <form className={loginformcss.form} onSubmit={onLoginIn}>
-            <h3 className={loginformcss.login} >Login</h3>
+          <form className={loginformcss.form} onSubmit={submitHandler}>
+            <h3 className={loginformcss.login}>Login</h3>
             <br />
             <input
               required
               className={loginformcss.input_container}
               type="text"
-              name="email"
-              value={email}
+              id="email"
+              value={form.email}
               placeholder="Email"
               onChange={handleChange}
             />
@@ -85,7 +78,8 @@ function LoginForm(props) {
               required
               className={loginformcss.input_container}
               type="password"
-              value={password}
+              id="password"
+              value={form.password}
               placeholder="Password"
               onChange={handleChange}
             />
@@ -95,7 +89,7 @@ function LoginForm(props) {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
 export default LoginForm;

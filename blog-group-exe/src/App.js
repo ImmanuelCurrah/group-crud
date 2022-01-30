@@ -1,17 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./screens/homePage/HomePage";
-import LoginForm from "./components/login/LoginForm";
 import "./App.css";
 import SignUp from "./components/signup/SignUp";
-
+import LoginScreen from "./screens/loginScreen/LoginScreen";
+import LoggedIn from "./screens/loggedInPage/LoggedIn";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/login" element={<LoginScreen />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/loggedInUser/:id" element={<LoggedIn />} />
       </Routes>
     </div>
   );

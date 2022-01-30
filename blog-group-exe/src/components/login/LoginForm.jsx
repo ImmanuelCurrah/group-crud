@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import loginformcss from "./LoginForm.module.css";
-import { useState, useEffect } from "react"
-import { loginHandler } from "../../services/apiConfig"
-import Layout from '../layout/Layout';
-
+import { useState, useEffect } from "react";
+import { loginHandler } from "../../services/apiConfig";
+import Layout from "../layout/Layout";
 
 const defaultInput = {
   userName: "",
@@ -33,12 +32,11 @@ function LoginForm(props) {
   const { userName, firstName, lastName, email, password } = props;
 
   return (
-    <div>
-      <Layout />
+    <Layout>
       <div className={loginformcss.body}>
         <div className={loginformcss.form_body}>
           <form className={loginformcss.form}>
-            <h3 className={loginformcss.login} >Login</h3>
+            <h3 className={loginformcss.login}>Login</h3>
             {/* <label className={loginformcss.label_container} >User Name</label> */}
             <br />
             <input
@@ -102,67 +100,13 @@ function LoginForm(props) {
               className={loginformcss.btn}
               type="button"
               name="button"
-              value="Submit" />
+              value="Submit"
+            />
           </form>
         </div>
       </div>
       <h3>Login</h3>
-      <form>
-        <label>User Name</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="username"
-          value={userName}
-          placeholder="Username"
-          onChange={handleChange}
-        />
-        <br />
-        <label>First Name</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="firstName"
-          value={firstName}
-          placeholder="First Name"
-          onChange={handleChange}
-        />
-        <br />
-        <label>Last Name</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="lastName"
-          value={lastName}
-          placeholder="Last Name"
-          onChange={handleChange}
-        />
-        <br />
-        <label>Email</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="email"
-          value={email}
-          placeholder="Email"
-          onChange={handleChange}
-        />
-        <br />
-        <label>Password</label>
-        <br />
-        <input
-          required
-          name="password"
-          value={password}
-          placeholder="Password"
-          onChange={handleChange}
-        />
-      </form>
-    </div>
+    </Layout>
   );
 }
 

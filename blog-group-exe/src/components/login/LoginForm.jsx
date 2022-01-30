@@ -1,15 +1,21 @@
 import React from "react";
 import loginformcss from "./LoginForm.module.css";
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { loginHandler } from "../../services/apiConfig";
 import Layout from "../layout/Layout";
+=======
+import { useState } from "react"
+import { loginHandler } from "../../services/apiConfig"
+import Layout from '../layout/Layout';
+
+>>>>>>> 3fccfb6698348cdf8db94e2e99d7183ff25ae705
 
 const defaultInput = {
-  userName: "",
-  firstName: "",
-  lastName: "",
   email: "",
   password: "",
+  isError: false,
+  errorMsg: "",
 };
 
 function LoginForm(props) {
@@ -22,58 +28,48 @@ function LoginForm(props) {
     });
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await loginHandler(form);
-    };
-    fetchData();
-  }, [form]);
+  const onLoginIn = async (event) => {
+    event.preventDefault()
+    const { setUser } = props
+    try {
+      const user = await loginHandler(form)
+      setUser(user)
+    } catch (error) {
+      console.error(error)
+      setForm({
+        isError: true,
+        errorMsg: "Invalid Credentials",
+        email: "",
+        password: "",
+      })
+    }
+  }
 
-  const { userName, firstName, lastName, email, password } = props;
+  const handelError = () => {
+    const toggleForm = form.isError ? "danger" : ""
+    if (form.isError) {
+      return (
+        <button type="submit" className={toggleForm}>
+          {form.errorMsg}
+        </button>
+      )
+    } else {
+      return <button className={loginformcss.btn} type="submit" >Login In</button>
+    }
+  }
+
+
+
+
+  const { email, password } = props;
 
   return (
-    <Layout>
-      <div className={loginformcss.body}>
+
+    <Layout >
+      <div className={loginformcss.container}>
         <div className={loginformcss.form_body}>
-          <form className={loginformcss.form}>
-            <h3 className={loginformcss.login}>Login</h3>
-            {/* <label className={loginformcss.label_container} >User Name</label> */}
-            <br />
-            <input
-              required
-              className={loginformcss.input_container}
-              type="text"
-              name="username"
-              value={userName}
-              placeholder="Username"
-              onChange={handleChange}
-            />
-            <br />
-            {/* <label className={loginformcss.label_container} >First Name</label> */}
-            <br />
-            <input
-              required
-              className={loginformcss.input_container}
-              type="text"
-              name="firstName"
-              value={firstName}
-              placeholder="First Name"
-              onChange={handleChange}
-            />
-            <br />
-            {/* <label className={loginformcss.label_container} >Last Name</label> */}
-            <br />
-            <input
-              required
-              className={loginformcss.input_container}
-              type="text"
-              name="lastName"
-              value={lastName}
-              placeholder="Last Name"
-              onChange={handleChange}
-            />
-            <br />
-            {/* <label className={loginformcss.label_container}>Email</label> */}
+          <form className={loginformcss.form} onSubmit={onLoginIn}>
+            <h3 className={loginformcss.login} >Login</h3>
             <br />
             <input
               required
@@ -85,29 +81,21 @@ function LoginForm(props) {
               onChange={handleChange}
             />
             <br />
-            {/* <label className={loginformcss.label_container} >Password</label> */}
-            <br />
             <input
               required
               className={loginformcss.input_container}
-              name="password"
+              type="password"
               value={password}
               placeholder="Password"
               onChange={handleChange}
             />
             <br />
-            <input
-              className={loginformcss.btn}
-              type="button"
-              name="button"
-              value="Submit"
-            />
+            {handelError()}
           </form>
         </div>
       </div>
-      <h3>Login</h3>
     </Layout>
-  );
+  )
 }
 
 export default LoginForm;

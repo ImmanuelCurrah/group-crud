@@ -8,9 +8,9 @@ const Layout = (props) => {
   return (
     <div className={classes.layout}>
       <NavBar />
-      <div className="layout-children">{props.children}</div>
-      <Footer />
       <div className={classes.layoutChildren}>{props.children}</div>
+      <Footer />
+      
     </div>
   );
 };

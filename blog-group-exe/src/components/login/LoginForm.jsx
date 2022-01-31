@@ -28,7 +28,7 @@ function LoginForm() {
     try {
       const user = await loginHandler(form);
       console.log(user.data);
-      navigate(`/loggedInUser/${user.data.data._id}`);
+      navigate(`/loggedInUser/${user._id}`);
     } catch (error) {
       console.error(error);
       setForm({

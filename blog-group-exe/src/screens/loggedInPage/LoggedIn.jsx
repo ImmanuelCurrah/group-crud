@@ -15,6 +15,7 @@ export default function LoggedIn() {
   useEffect(() => {
     const fetchUserData = async () => {
       const user = await findUserById(id);
+      console.log(user);
       setLoggedInUserData(user.data.data.user);
     };
     fetchUserData();

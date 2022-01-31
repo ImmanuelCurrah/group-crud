@@ -31,16 +31,20 @@ export default function LoggedIn() {
 
   return (
     <Layout>
-      <h1>{loggedInUserData.userName}</h1>
-      <h3>{loggedInUserData.email}</h3>
-      <h3>{loggedInUserData.member_since}</h3>
-      {loggedInUserData.posts.map((post) => (
-        <div key={post._id}>
-          <h2>{post.title}</h2>
-          <h3>{post.body}</h3>
+      <div className={classes.loggedIn}>
+        <div className={classes.userData}>
+          <h1 className={classes.userName}>{loggedInUserData.userName}</h1>
+          <h3 className={classes.email}>{loggedInUserData.email}</h3>
+          <h3 className={classes.memberSince}>{loggedInUserData.member_since}</h3>
         </div>
-      ))}
-      <button onClick={createAPostHandler}>Create a Post!</button>
+        {loggedInUserData.posts.map((post) => (
+          <div className={classes.post} key={post._id}>
+            <h2>{post.title}</h2>
+            <h3>{post.body}</h3>
+          </div>
+        ))}
+        <button onClick={createAPostHandler}>Create a Post!</button>
+      </div>
     </Layout>
   );
 }

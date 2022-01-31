@@ -27,8 +27,9 @@ function LoginForm() {
     event.preventDefault();
     try {
       const user = await loginHandler(form);
-      console.log(user.data);
-      navigate(`/loggedInUser/${user.data.data._id}`);
+      console.log(user.data.data.token);
+      localStorage.setItem("token", user.data.data.token);
+      navigate(`/loggedInUser/${user.data.data.user._id}`);
     } catch (error) {
       console.error(error);
       setForm({

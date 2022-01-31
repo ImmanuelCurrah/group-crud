@@ -2,6 +2,7 @@ import Layout from "../../components/layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { findUserById } from "../../services/apiConfig";
+import classes from "./LoggedIn.module.css";
 
 export default function LoggedIn() {
   const [loggedInUserData, setLoggedInUserData] = useState({});
@@ -14,6 +15,7 @@ export default function LoggedIn() {
   useEffect(() => {
     const fetchUserData = async () => {
       const user = await findUserById(id);
+      console.log(user);
       setLoggedInUserData(user.data.data.user);
     };
     fetchUserData();

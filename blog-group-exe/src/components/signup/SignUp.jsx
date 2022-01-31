@@ -5,6 +5,7 @@ import { existingUsersHandler } from "../../services/apiConfig";
 import Layout from "../layout/Layout";
 import classes from "./SignUp.module.css";
 
+
 export default function SignUp() {
   const [newUser, setNewUser] = useState({
     userName: "",

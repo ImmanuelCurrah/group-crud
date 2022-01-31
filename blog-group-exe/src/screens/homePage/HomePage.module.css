@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -15,4 +16,8 @@ img {
   outline: 10px solid rgb(223, 30, 223);
   outline-offset: 5px solid #32cd32;
   border-radius: 10px;
+}
+
+.button {
+  margin: 30px;
 }

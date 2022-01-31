@@ -10,7 +10,6 @@ const Layout = (props) => {
       <NavBar />
       <div className={classes.layoutChildren}>{props.children}</div>
       <Footer />
-      
     </div>
   );
 };

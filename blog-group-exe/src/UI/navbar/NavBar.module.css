@@ -7,6 +7,8 @@
   position: fixed;
   width: 100%;
   background-color: black;
+  margin: 0px;
+  padding-top: 0px;
 }
 
 a {

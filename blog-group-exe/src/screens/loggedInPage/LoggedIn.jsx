@@ -32,7 +32,7 @@ export default function LoggedIn() {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <LoggedInNavBar />
       <div className={classes.container}>
         <div className={classes.loggedIn}>

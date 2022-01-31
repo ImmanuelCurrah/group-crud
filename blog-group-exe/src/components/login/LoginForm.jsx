@@ -28,6 +28,7 @@ function LoginForm() {
       const user = await loginHandler(form);
       console.log(user.data.data.token);
       localStorage.setItem("token", user.data.data.token);
+      localStorage.setItem("username", user.data.data.user.userName);
       navigate(`/loggedInUser/${user.data.data.user._id}`);
     } catch (error) {
       console.error(error);

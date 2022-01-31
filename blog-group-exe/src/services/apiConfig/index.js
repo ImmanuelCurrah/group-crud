@@ -21,6 +21,18 @@ export const existingUsersHandler = (token) =>
       console.log(error);
     });
 
+export const currentUserHandler = (token, userName) =>
+  axios({
+    url: `${baseURL}/currentUser/${userName}`,
+    headers: { Authorization: `${token}` },
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
 export const logOutHandler = () =>
   axios({
     url: `${logoutURL}`,

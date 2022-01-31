@@ -39,6 +39,7 @@ export default function PostForm() {
         <label className={classes.titleLabel}>Title</label>
         <br />
         <input
+          className={classes.titletext}
           type="text"
           id="title"
           value={postData.title}
@@ -49,6 +50,7 @@ export default function PostForm() {
         <label className={classes.bodyLabel}>Body</label>
         <br />
         <input
+          className={classes.bodytext}
           type="text"
           id="body"
           value={postData.body}

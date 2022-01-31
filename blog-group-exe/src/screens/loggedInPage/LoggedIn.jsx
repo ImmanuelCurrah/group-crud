@@ -32,7 +32,7 @@ export default function LoggedIn() {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <LoggedInNavBar />
       <div className={classes.loggedIn}>
         <div className={classes.userData}>
@@ -42,12 +42,6 @@ export default function LoggedIn() {
             {loggedInUserData.member_since}
           </h3>
         </div>
-        {loggedInUserData.posts.map((post) => (
-          <div className={classes.post} key={post._id}>
-            <h2>{post.title}</h2>
-            <h3>{post.body}</h3>
-          </div>
-        ))}
         <button onClick={createAPostHandler}>Create a Post!</button>
       </div>
       <Footer />

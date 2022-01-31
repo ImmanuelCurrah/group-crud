@@ -1,11 +1,17 @@
 // Laura
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import classes from "./LoggedInNavBar.module.css";
 
 const LoggedInNavBar = () => {
   const logout = () => {
     localStorage.removeItem("token");
   };
+
+  const { id } = useParams();
+
+  const trueId = id;
+
+  console.log(trueId);
 
   return (
     <nav className={classes.navbar}>
@@ -16,7 +22,7 @@ const LoggedInNavBar = () => {
         </NavLink>
       </div>
       <div className={classes.links}>
-        <NavLink to="/loggedInUser/:id">Account</NavLink>
+        <NavLink to={`/loggedInUser/${trueId}`}>Account</NavLink>
         <NavLink onClick={logout} to="/">
           LogOut
         </NavLink>

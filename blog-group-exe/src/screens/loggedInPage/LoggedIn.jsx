@@ -1,7 +1,7 @@
 import Layout from "../../components/layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { findUserById } from "../../services/apiConfig";
+import { deleteUserHandler, findUserById } from "../../services/apiConfig";
 import classes from "./LoggedIn.module.css";
 import LoggedInNavBar from "../../UI/loggedInNavBar/LoggedInNavBar";
 import Footer from "../../UI/footer/Footer";
@@ -31,6 +31,10 @@ export default function LoggedIn() {
     navigate(`/createPost/${id}`);
   };
 
+  const deleteUser = async () => {
+    await deleteUserHandler(id);
+    navigate("/");
+  };
   return (
     <div className={classes.container}>
       <LoggedInNavBar />
@@ -44,6 +48,7 @@ export default function LoggedIn() {
             </h3>
           </div>
           <button onClick={createAPostHandler}>Create a Post!</button>
+          <button onClick={deleteUser}>Delete User</button>
         </div>
       </div>
       <Footer />

@@ -1,0 +1,5 @@
+.blogs {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #32cd32, dodgerblue);
+}

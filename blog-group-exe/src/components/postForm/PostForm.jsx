@@ -18,7 +18,7 @@ export default function PostForm() {
     e.preventDefault();
     try {
       const post = await createPost(postData, id);
-      navigate(`/loggedInUser/${id}`);
+      navigate(`/blogs`);
       console.log(post);
     } catch (error) {
       console.log(error);

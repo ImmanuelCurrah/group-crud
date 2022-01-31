@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { existingUsersHandler } from "../../services/apiConfig";
+import Footer from "../../UI/footer/Footer";
+import LoggedInNavBar from "../../UI/loggedInNavBar/LoggedInNavBar";
+
+import classes from "./BlogPage.module.css";
 
 export default function BlogPage() {
   const [userPosts, setUserPosts] = useState();
@@ -20,7 +24,8 @@ export default function BlogPage() {
   }
 
   return (
-    <div>
+    <div className={classes.blogs}>
+      <LoggedInNavBar />
       {userPosts.map((posts) => {
         return posts.posts.map((post) => {
           return (
@@ -32,6 +37,7 @@ export default function BlogPage() {
           );
         });
       })}
+      <Footer />
     </div>
   );
 }

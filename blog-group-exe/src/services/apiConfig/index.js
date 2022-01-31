@@ -9,15 +9,17 @@ const updateUserURL = "https://tranquil-lake-29913.herokuapp.com/api/update";
 const findUserByIdURL = "https://tranquil-lake-29913.herokuapp.com/api/users";
 const postURL = "https://tranquil-lake-29913.herokuapp.com/api/users/post";
 
-export const existingUsersHandler = axios({
-  url: `${baseURL}`,
-})
-  .then((response) => {
-    return response.data.data;
+export const existingUsersHandler = (token) =>
+  axios({
+    url: `${baseURL}`,
+    headers: { Authorization: `${token}` },
   })
-  .catch((error) => {
-    console.log(error);
-  });
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
 export const logOutHandler = () =>
   axios({

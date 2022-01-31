@@ -2,7 +2,6 @@ import loginformcss from "./LoginForm.module.css";
 import { useState } from "react";
 import { loginHandler } from "../../services/apiConfig";
 import { useNavigate } from "react-router-dom";
-import Layout from "../layout/Layout";
 
 const defaultInput = {
   email: "",

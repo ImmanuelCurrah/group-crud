@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { existingUsersHandler } from "../../services/apiConfig";
+
 import Footer from "../../UI/footer/Footer";
 import LoggedInNavBar from "../../UI/loggedInNavBar/LoggedInNavBar";
 
@@ -41,3 +42,4 @@ export default function BlogPage() {
     </div>
   );
 }
+

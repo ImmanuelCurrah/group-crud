@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { existingUsersHandler } from "../../services/apiConfig";
 import BlogPagecss from "./BlogPage.module.css";
 
+import Footer from "../../UI/footer/Footer";
+import LoggedInNavBar from "../../UI/loggedInNavBar/LoggedInNavBar";
+
+import classes from "./BlogPage.module.css";
 
 export default function BlogPage() {
   const [userPosts, setUserPosts] = useState();
@@ -22,20 +26,20 @@ export default function BlogPage() {
   }
 
   return (
-    <div className={BlogPagecss.container}>
-      <div >
-        {userPosts.map((posts) => {
-          return posts.posts.map((post) => {
-            return (
-              <div key={post._id} >
-                <h2>{posts.userName}</h2>
-                <h3>{post.title}</h3>
-                <h4>{post.body}</h4>
-              </div>
-            );
-          });
-        })}
-      </div>
+    <div className={classes.blogs}>
+      <LoggedInNavBar />
+      {userPosts.map((posts) => {
+        return posts.posts.map((post) => {
+          return (
+            <div key={post._id}>
+              <h2>{posts.userName}</h2>
+              <h3>{post.title}</h3>
+              <h4>{post.body}</h4>
+            </div>
+          );
+        });
+      })}
+      <Footer />
     </div>
   );
 }

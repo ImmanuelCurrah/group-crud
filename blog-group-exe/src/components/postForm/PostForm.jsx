@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createPost } from "../../services/apiConfig";
 import { useParams, useNavigate } from "react-router-dom";
 import Layout from "../layout/Layout";
+import classes from "./PostForm.module.css";
 
 export default function PostForm() {
   const [postData, setPostData] = useState({
@@ -17,7 +18,7 @@ export default function PostForm() {
     e.preventDefault();
     try {
       const post = await createPost(postData, id);
-      navigate(`/loggedInUser/${id}`);
+      navigate(`/blogs`);
       console.log(post);
     } catch (error) {
       console.log(error);
@@ -33,9 +34,9 @@ export default function PostForm() {
   };
 
   return (
-    <div>
+    <div className={classes.postForm}>
       <form onSubmit={submitHandler}>
-        <label>Title</label>
+        <label className={classes.titleLabel}>Title</label>
         <br />
         <input
           type="text"
@@ -45,7 +46,7 @@ export default function PostForm() {
           onChange={changePostDataHandler}
         />
         <br />
-        <label>Body</label>
+        <label className={classes.bodyLabel}>Body</label>
         <br />
         <input
           type="text"
@@ -55,7 +56,7 @@ export default function PostForm() {
           onChange={changePostDataHandler}
         />
         <br />
-        <button>Submit</button>
+        <button className={classes.btn}>Submit</button>
       </form>
     </div>
   );

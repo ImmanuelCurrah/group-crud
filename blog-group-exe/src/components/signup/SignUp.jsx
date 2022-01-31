@@ -22,7 +22,7 @@ export default function SignUp() {
     e.preventDefault();
     await signUpHandler(newUser);
     console.log(newUser);
-    navigation("/");
+    navigation("/login");
   };
 
   const handleInput = (e) => {

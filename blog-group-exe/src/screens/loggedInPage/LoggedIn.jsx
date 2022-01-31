@@ -34,17 +34,6 @@ export default function LoggedIn() {
   return (
     <div className={classes.container}>
       <LoggedInNavBar />
-<<<<<<< HEAD
-      <div className={classes.loggedIn}>
-        <div className={classes.userData}>
-          <h1 className={classes.userName}>{loggedInUserData.userName}</h1>
-          <h3 className={classes.email}>{loggedInUserData.email}</h3>
-          <h3 className={classes.memberSince}>
-            {loggedInUserData.member_since}
-          </h3>
-        </div>
-        <button onClick={createAPostHandler}>Create a Post!</button>
-=======
       <div className={classes.container}>
         <div className={classes.loggedIn}>
           <div className={classes.userData}>
@@ -62,7 +51,6 @@ export default function LoggedIn() {
           ))}
           <button onClick={createAPostHandler}>Create a Post!</button>
         </div>
->>>>>>> 80e984821e805e0189ea8af9aebca88962e356e3
       </div>
       <Footer />
     </div>

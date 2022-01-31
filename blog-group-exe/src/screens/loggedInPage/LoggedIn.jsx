@@ -1,4 +1,3 @@
-import Layout from "../../components/layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { deleteUserHandler, findUserById } from "../../services/apiConfig";
@@ -35,6 +34,11 @@ export default function LoggedIn() {
     await deleteUserHandler(id);
     navigate("/");
   };
+
+  const updateUserName = () => {
+    navigate("/updated");
+  };
+
   return (
     <div className={classes.container}>
       <LoggedInNavBar />
@@ -49,6 +53,7 @@ export default function LoggedIn() {
           </div>
           <button onClick={createAPostHandler}>Create a Post!</button>
           <button onClick={deleteUser}>Delete User</button>
+          <button onClick={updateUserName}>Update Username</button>
         </div>
       </div>
       <Footer />

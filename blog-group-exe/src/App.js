@@ -6,6 +6,7 @@ import LoginScreen from "./screens/loginScreen/LoginScreen";
 import LoggedIn from "./screens/loggedInPage/LoggedIn";
 import CreatePost from "./screens/createPost/CreatePost";
 import BlogPage from "./screens/blogPage/BlogPage";
+import UpdateForm from "./screens/updateScreen/UpdateForm";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/loggedInUser/:id" element={<LoggedIn />} />
         <Route path="/createPost/:id" element={<CreatePost />} />
         <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/updated" element={<UpdateForm />} />
       </Routes>
     </div>
   );

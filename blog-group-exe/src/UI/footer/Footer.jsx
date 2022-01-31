@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className={classes.footer}>
-      <h1>Feet!</h1>
+      <p>Created by: Immanuel, Galina, Virginie, & Laura</p>
     </footer>
   )
 }

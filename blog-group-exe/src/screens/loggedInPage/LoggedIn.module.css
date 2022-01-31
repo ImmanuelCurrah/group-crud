@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+.loggedIn {
+  font-family: "Press Start 2P", cursive;
+}
+
+.loggedIn {
+  background-color: black;
+  color: #32cd32;
+  border: 3px solid #32cd32;
+  border-radius: 50px;
+  margin: 100px 150px 100px 150px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+button {
+  font-family: "Press Start 2P", cursive;
+  padding: 10px;
+  border-radius: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #32cd32;
+  color: #fff;
+  border: #fff;
+}

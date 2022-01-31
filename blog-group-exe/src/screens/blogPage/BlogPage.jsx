@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { existingUsersHandler } from "../../services/apiConfig";
+import BlogPagecss from "./BlogPage.module.css";
+
 
 export default function BlogPage() {
   const [userPosts, setUserPosts] = useState();
@@ -20,18 +22,20 @@ export default function BlogPage() {
   }
 
   return (
-    <div>
-      {userPosts.map((posts) => {
-        return posts.posts.map((post) => {
-          return (
-            <div key={post._id}>
-              <h2>{posts.userName}</h2>
-              <h3>{post.title}</h3>
-              <h4>{post.body}</h4>
-            </div>
-          );
-        });
-      })}
+    <div className={BlogPagecss.container}>
+      <div >
+        {userPosts.map((posts) => {
+          return posts.posts.map((post) => {
+            return (
+              <div key={post._id} >
+                <h2>{posts.userName}</h2>
+                <h3>{post.title}</h3>
+                <h4>{post.body}</h4>
+              </div>
+            );
+          });
+        })}
+      </div>
     </div>
   );
 }

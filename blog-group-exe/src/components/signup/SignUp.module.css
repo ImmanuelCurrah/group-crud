@@ -1,3 +1,87 @@
-.title {
+/** Galina */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+.container {
+  font-family: "Press Start 2P", cursive;
+  background: linear-gradient(45deg, #32cd32, dodgerblue);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.title,
+.label {
+  color: #32cd32;
+}
+.message {
   color: red;
+  font-size: 10px;
+}
+
+.label {
+  text-align: left;
+  color: white;
+}
+.signupForm {
+  width: 30%;
+  position: relative;
+  padding: 10px 50px;
+  background: black;
+  border-radius: 10px;
+}
+.signupInput {
+  color: rgb(223, 30, 223);
+  background-color: #32cd32;
+  font-family: "Press Start 2P";
+  height: 30px;
+  margin: 5px;
+  border-radius: 15px;
+  border: 2px solid white;
+  padding: 1px 15px;
+  margin-bottom: 10px;
+}
+::placeholder {
+  color: rgb(228, 105, 222);
+}
+.submit {
+  font-family: "Press Start 2P";
+  color: black;
+  background-color: #32cd32;
+  border-radius: 15px;
+  border: 3px solid white;
+  padding: 5px 15px;
+}
+@media only screen and (max-width: 900px) {
+  .container {
+    font-size: 12px;
+  }
+  .signupForm {
+    width: 60%;
+  }
+  .signupInput {
+    max-width: 90%;
+    height: 14px;
+    font-size: 12px;
+  }
+  .submit {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    font-size: 8px;
+  }
+  .signupForm {
+    width: 50%;
+  }
+  .signupInput {
+    max-width: 80%;
+    height: 12px;
+    font-size: 10px;
+  }
+  .submit {
+    font-size: 11px;
+  }
 }

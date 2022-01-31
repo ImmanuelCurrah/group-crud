@@ -1,94 +1,91 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import loginformcss from "./LoginForm.module.css";
+import { useState } from "react";
 import { loginHandler } from "../../services/apiConfig";
+import { useNavigate } from "react-router-dom";
 import Layout from "../layout/Layout";
 
 const defaultInput = {
-  userName: "",
-  firstName: "",
-  lastName: "",
   email: "",
   password: "",
+  isError: false,
+  errorMsg: "",
 };
 
-function LoginForm(props) {
+function LoginForm() {
   const [form, setForm] = useState(defaultInput);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
-    });
+    const { id, value } = event.target;
+    setForm((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await loginHandler(form);
-    };
-    fetchData();
-  }, []);
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    try {
+      const user = await loginHandler(form);
+      console.log(user.data);
+      navigate(`/loggedInUser/${user.data.data._id}`);
+    } catch (error) {
+      console.error(error);
+      setForm({
+        isError: true,
+        errorMsg: "Invalid Credentials",
+        email: "",
+        password: "",
+      });
+    }
+  };
 
-  const { userName, firstName, lastName, email, password } = props;
+  const handelError = () => {
+    const toggleForm = form.isError ? "danger" : "";
+    if (form.isError) {
+      return (
+        <button type="submit" className={toggleForm}>
+          {form.errorMsg}
+        </button>
+      );
+    } else {
+      return (
+        <button className={loginformcss.btn} type="submit">
+          Login In
+        </button>
+      );
+    }
+  };
 
   return (
-    <div>
-      <Layout />
-      <h3>Login</h3>
-      <form>
-        <label>User Name</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="username"
-          value={userName}
-          placeholder="Username"
-          onChange={handleChange}
-        />
-        <br />
-        <label>First Name</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="firstName"
-          value={firstName}
-          placeholder="First Name"
-          onChange={handleChange}
-        />
-        <br />
-        <label>Last Name</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="lastName"
-          value={lastName}
-          placeholder="Last Name"
-          onChange={handleChange}
-        />
-        <br />
-        <label>Email</label>
-        <br />
-        <input
-          required
-          type="text"
-          name="email"
-          value={email}
-          placeholder="Email"
-          onChange={handleChange}
-        />
-        <br />
-        <label>Password</label>
-        <br />
-        <input
-          required
-          name="password"
-          value={password}
-          placeholder="Password"
-          onChange={handleChange}
-        />
-      </form>
+    <div className={loginformcss.container}>
+      <div className={loginformcss.form_body}>
+        <form className={loginformcss.form} onSubmit={submitHandler}>
+          <h3 className={loginformcss.login}>Login</h3>
+          <br />
+          <input
+            required
+            className={loginformcss.input_container}
+            type="text"
+            id="email"
+            value={form.email}
+            placeholder="Email"
+            onChange={handleChange}
+          />
+          <br />
+          <input
+            required
+            className={loginformcss.input_container}
+            type="password"
+            id="password"
+            value={form.password}
+            placeholder="Password"
+            onChange={handleChange}
+          />
+          <br />
+          {handelError()}
+        </form>
+      </div>
     </div>
   );
 }

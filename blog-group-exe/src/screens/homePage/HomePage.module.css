@@ -1,0 +1,18 @@
+.container {
+  font-family: "Press Start 2P", cursive;
+  background: linear-gradient(90deg, #32cd32, dodgerblue);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+img {
+  width: 40%;
+  border: 8px solid #32cd32;
+  outline: 10px solid rgb(223, 30, 223);
+  outline-offset: 5px solid #32cd32;
+  border-radius: 10px;
+}

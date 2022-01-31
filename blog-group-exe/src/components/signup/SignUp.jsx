@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { signUpHandler } from "../../services/apiConfig";
 import { existingUsersHandler } from "../../services/apiConfig";
 import Layout from "../layout/Layout";
 import classes from "./SignUp.module.css";
-import Layout from '../layout/Layout';
+
 
 export default function SignUp() {
   const [newUser, setNewUser] = useState({
@@ -17,6 +18,7 @@ export default function SignUp() {
   });
   const [validationMessage, setValidationMessage] = useState("");
   const [valid, setValid] = useState(false);
+  const navigation = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +32,7 @@ export default function SignUp() {
     e.preventDefault();
     await signUpHandler(newUser);
     console.log(newUser);
+    navigation("/")
   };
 
   const handleInput = (e) => {
@@ -61,83 +64,68 @@ export default function SignUp() {
   };
 
   return (
+    <Layout>
     <div className={classes.container}>
-      <form onSubmit={handleSubmit}>
+      <form className={classes.signupForm} onSubmit={handleSubmit}>
         <h2 className={classes.title}>Sign up</h2>
-        <h3>{validationMessage}</h3>
-        <label>User name</label>
+        <h3 className={classes.message}>{validationMessage}</h3>
+        <label className={classes.label}>User name</label><br/>
+          <input className={classes.signupInput}
+              type="text" 
+              placeholder='create user name'
+              id='userName' value={newUser.userName}
+              onChange={handleInput} />
         <br />
-        <input
-          type="text"
-          placeholder="create user name"
-          id="userName"
-          value={newUser.userName}
-          onChange={handleInput}
-        />
+        <label className={classes.label}>Upload avatar</label>
         <br />
-        <label>Upload avatar</label>
+          <input className={classes.signupInput}
+              type="text"
+              placeholder='avatar link'
+              id='avatar' value={newUser.avatar}
+              onChange={handleInput} />
         <br />
-        <input
-          type="text"
-          placeholder="avatar link"
-          id="avatar"
-          value={newUser.avatar}
-          onChange={handleInput}
-        />
+          <label className={classes.label}>First Name</label>
         <br />
-        <label>First Name</label>
+          <input className={classes.signupInput}
+              type="text"
+              placeholder='first name'
+              id='firstName' value={newUser.firstName}
+              onChange={handleInput} />
         <br />
-        <input
-          type="text"
-          placeholder="first name"
-          id="firstName"
-          value={newUser.firstName}
-          onChange={handleInput}
-        />
+        <label className={classes.label}>Last Name</label>
         <br />
-        <label>Last Name</label>
+          <input className={classes.signupInput}
+              type="text"
+              placeholder='last name'
+              id='lastName' value={newUser.lastName}
+              onChange={handleInput} /><br />
+        <label className={classes.label}>Email</label>
         <br />
-        <input
-          type="text"
-          placeholder="last name"
-          id="lastName"
-          value={newUser.lastName}
-          onChange={handleInput}
-        />
+        <input className={classes.signupInput}
+              type="text"
+              placeholder='email'
+              id='email' value={newUser.email}
+              onChange={handleInput} />
         <br />
-        <label>Email</label>
+        <label className={classes.label}>Password</label>
         <br />
-        <input
-          type="text"
-          placeholder="email"
-          id="email"
-          value={newUser.email}
-          onChange={handleInput}
-        />
+        <input className={classes.signupInput}
+              type="text"
+              placeholder='create password'
+              id='password' value={newUser.password}
+              onChange={handleInput} /><br />
+        <label className={classes.label}>Confirm password</label>
         <br />
-        <label>Password</label>
-        <br />
-        <input
-          type="text"
-          placeholder="create password"
-          id="password"
-          value={newUser.password}
-          onChange={handleInput}
-        />
-        <br />
-        <label>Confirm password</label>
-        <br />
-        <input
-          type="text"
-          placeholder="confirm password"
-          id="confirmPassword"
-          value={newUser.confirmPassword}
-          onChange={handleInput}
-        />
-        <br />
-        <br />
-        <button disabled={!valid}>SIGN UP</button>
+        <input className={classes.signupInput}
+              type="text"
+              placeholder='confirm password'
+              id='confirmPassword' value={newUser.confirmPassword}
+              onChange={handleInput} />
+          <br />
+          <br />
+        <button className={classes.submit} disabled={!valid}>SIGH UP</button>
       </form>
-    </div>
-  );
+      </div>
+      </Layout>
+    )
 }

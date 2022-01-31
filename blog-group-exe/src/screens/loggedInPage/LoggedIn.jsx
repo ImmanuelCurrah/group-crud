@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { findUserById } from "../../services/apiConfig";
 import classes from "./LoggedIn.module.css";
+import LoggedInNavBar from "../../UI/loggedInNavBar/LoggedInNavBar";
+import Footer from "../../UI/footer/Footer";
 
 export default function LoggedIn() {
   const [loggedInUserData, setLoggedInUserData] = useState({});
@@ -30,12 +32,15 @@ export default function LoggedIn() {
   };
 
   return (
-    <Layout>
+    <div>
+      <LoggedInNavBar />
       <div className={classes.loggedIn}>
         <div className={classes.userData}>
           <h1 className={classes.userName}>{loggedInUserData.userName}</h1>
           <h3 className={classes.email}>{loggedInUserData.email}</h3>
-          <h3 className={classes.memberSince}>{loggedInUserData.member_since}</h3>
+          <h3 className={classes.memberSince}>
+            {loggedInUserData.member_since}
+          </h3>
         </div>
         {loggedInUserData.posts.map((post) => (
           <div className={classes.post} key={post._id}>
@@ -45,6 +50,7 @@ export default function LoggedIn() {
         ))}
         <button onClick={createAPostHandler}>Create a Post!</button>
       </div>
-    </Layout>
+      <Footer />
+    </div>
   );
 }
